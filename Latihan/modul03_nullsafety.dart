@@ -17,10 +17,11 @@ String ringkasan(DataKiriman k) {
   final status = k.waktuTerima == null
       ? 'Dalam perjalanan'
       : 'Diterima pada ${k.waktuTerima!.toIso8601String()}';
-  return '${k.resi} ${k.kotaTujuan} $status $catatan';
+  return '${k.resi} | ${k.kotaTujuan} | $status | $catatan';
 }
 
 void main() {
+  print('=== Latihan 1: Penanganan Data Opsional (Null Safety) ===');
   final daftar = <DataKiriman>[
     DataKiriman(resi: 'SLG-001', kotaTujuan: 'Bandung'),
     DataKiriman(
@@ -34,6 +35,9 @@ void main() {
   for (final k in daftar) {
     print(ringkasan(k));
   }
+
+  print('\n=== Latihan 2: Penanganan Error (try-catch) ===');
+  ujiPenanganan();
 }
 
 class ResiTidakDitemukan implements Exception {
